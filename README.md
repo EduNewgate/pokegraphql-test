@@ -1,5 +1,8 @@
 # pokegraphql-test
 
+### A simple test using GraphQL with Apollo Server.
+#### Data obtained from [https://pokeapi.co]
+
 ###### Install Apollo Server and Apollo Datasource Rest dependencies.
 
 ```
