@@ -23,7 +23,16 @@ Finally, copy this piece of code on the left editor and clik "Play". You will ob
 
 ```
 query {
-  pokemon {
+  getPokemon {
+    name
+  }
+}
+```
+
+###### A simple query with params
+```
+query {
+  getPokemonPaginated(offset: 20, limit: 20) {
     name
   }
 }
