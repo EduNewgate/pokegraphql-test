@@ -2,11 +2,12 @@ const { gql } = require('apollo-server');
 
 const typeDefs = gql`
   type Query {
-      pokemon: [Pokemon]
+    getPokemon: [Pokemon],
+    getPokemonPaginated(offset: Int, limit: Int): [Pokemon]
   }
 
   type Pokemon {
-      name: String
+    name: String
   }
 `;
 

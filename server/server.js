@@ -7,7 +7,8 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   dataSources: () => ({
-    pokemon: new Pokemon()
+    getPokemon: new Pokemon(),
+    getPokemonPaginated: new Pokemon()
   })
 });
 

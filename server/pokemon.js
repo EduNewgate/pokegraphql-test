@@ -13,6 +13,16 @@ class Pokemon extends RESTDataSource {
             return response.results;
         }
     }
+
+    async getAllPokemonPaginated(offset, limit) {
+        const response = await this.get(Constants.API_RESOURCE_POKEMON, {
+            offset: offset,
+            limit: limit
+        });
+        if (response.results != undefined) {
+            return response.results;
+        }
+    }
 }
 
 module.exports = Pokemon;

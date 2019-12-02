@@ -1,6 +1,8 @@
 module.exports = {
     Query: {
-        pokemon: (_, __, { dataSources }) =>
-            dataSources.pokemon.getAllPokemon()
+        getPokemon: (_, __, { dataSources }) =>
+            dataSources.getPokemon.getAllPokemon(),
+        getPokemonPaginated: (_, {offset, limit}, { dataSources }) =>
+            dataSources.getPokemon.getAllPokemonPaginated(offset, limit)
     }
 };
