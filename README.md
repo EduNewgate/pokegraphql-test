@@ -32,7 +32,7 @@ query {
 ###### A simple query with params
 ```
 query {
-  getPokemonPaginated(offset: 20, limit: 20) {
+  getPokemon(offset: 20, limit: 20) {
     name
   }
 }
