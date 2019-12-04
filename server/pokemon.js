@@ -12,8 +12,8 @@ class Pokemon extends RESTDataSource {
             offset: offset,
             limit: limit
         });
-        if (response.results != undefined) {
-            return response.results;
+        if (response != undefined) {
+            return response;
         }
     }
 

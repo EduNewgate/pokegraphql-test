@@ -1,10 +1,10 @@
 const { gql } = require('apollo-server');
 
-const pokemonTypeModule = gql`
+const PokemonTypeModule = gql`
     type PokemonType {
         slot: Int
         type: Type
     }
 `;
 
-module.exports = pokemonTypeModule;
+module.exports = PokemonTypeModule;

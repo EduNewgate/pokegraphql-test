@@ -1,10 +1,10 @@
 const { gql } = require('apollo-server');
 
-const namedResourceModule = gql`
+const NamedResourceModule = gql`
     type NamedResource {
         name: String
         url: String
     }
 `;
 
-module.exports = namedResourceModule;
+module.exports = NamedResourceModule;

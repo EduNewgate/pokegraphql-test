@@ -1,9 +1,9 @@
 const { gql } = require('apollo-server');
 
-const typeModule = gql`
+const TypeModule = gql`
     type Type {
         name: String
     }
 `;
 
-module.exports = typeModule;
+module.exports = TypeModule;
