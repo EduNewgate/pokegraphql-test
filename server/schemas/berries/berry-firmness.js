@@ -5,6 +5,7 @@ const BerryFirmnessModule = gql`
         id: Int
         name: String
         berries: [Berry]
+        names: [Name]
     }
 `;
 

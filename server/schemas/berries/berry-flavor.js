@@ -6,6 +6,7 @@ const BerryFlavorModule = gql`
         name: String
         berries: [FlavorBerryMap]
         contest_type: ContestType
+        names: [Name]
     }
 `;
 
