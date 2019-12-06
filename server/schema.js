@@ -47,6 +47,12 @@ const ContestComboDetailModule = require('./schemas/moves/contest-combo-detail')
 const MoveFlavorTextModule = require('./schemas/moves/move-flavor-text');
 const MoveMetaDataModule = require('./schemas/moves/move-meta-data');
 const MoveStatChangeModule = require('./schemas/moves/move-stat-change');
+const MoveAilmentModule = require('./schemas/moves/move-ailment');
+const MoveBattleStyleModule = require('./schemas/moves/move-battle-style');
+const MoveCategoryModule = require('./schemas/moves/move-category');
+const MoveDamageClassModule = require('./schemas/moves/move-damage-class');
+const MoveLearnMethodModule = require('./schemas/moves/move-learn-method');
+const MoveTargetModule = require('./schemas/moves/move-target');
 
 const LanguageModule = require('./schemas/common/language');
 const EffectModule = require('./schemas/common/effect');
@@ -111,6 +117,12 @@ const typeDefs = gql`
   ${MoveFlavorTextModule}
   ${MoveMetaDataModule}
   ${MoveStatChangeModule}
+  ${MoveAilmentModule}
+  ${MoveBattleStyleModule}
+  ${MoveCategoryModule}
+  ${MoveDamageClassModule}
+  ${MoveLearnMethodModule}
+  ${MoveTargetModule}
 
   ${LanguageModule}
   ${EffectModule}
