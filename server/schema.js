@@ -69,16 +69,30 @@ const MoveBattleStylePreferenceModule = require('./schemas/pokemon/move-battle-s
 const PokeathlonStatModule = require('./schemas/pokemon/pokeathlon-stat');
 const NaturePokeathlonStatAffectSetsModule = require('./schemas/pokemon/nature-pokeathlon-stat-affect-sets');
 const NaturePokeathlonStatAffectModule = require('./schemas/pokemon/nature-pokeathlon-stat-affect');
+const PokemonModule = require('./schemas/pokemon/pokemon');
+const PokemonAbilityModule = require('./schemas/pokemon/pokemon-ability');
+const PokemonTypeModule = require('./schemas/pokemon/pokemon-type');
+const PokemonHeldItemModule = require('./schemas/pokemon/pokemon-held-item');
+const PokemonHeldItemVersionModule = require('./schemas/pokemon/pokemon-held-item-version');
+const PokemonMoveModule = require('./schemas/pokemon/pokemon-move');
+const PokemonMoveVersionModule = require('./schemas/pokemon/pokemon-move-version');
+const PokemonStatModule = require('./schemas/pokemon/pokemon-stat');
+const PokemonSpritesModule = require('./schemas/pokemon/pokemon-sprites');
+const LocationAreaEncounterModule = require('./schemas/pokemon/location-area-encounter');
+const PokemonColorModule = require('./schemas/pokemon/pokemon-color');
+const PokemonFormModule = require('./schemas/pokemon/pokemon-form');
+const PokemonFormSpritesModule = require('./schemas/pokemon/pokemon-form-sprites');
+const PokemonHabitatModule = require('./schemas/pokemon/pokemon-habitat');
+const PokemonShapeModule = require('./schemas/pokemon/pokemon-shape');
+const AwesomeNameModule = require('./schemas/pokemon/awesome-name');
+
+const TypeModule = require('./schemas/type');
 
 const LanguageModule = require('./schemas/common/language');
 const EffectModule = require('./schemas/common/effect');
 const FlavorTextModule = require('./schemas/common/flavor-text');
 const NameModule = require('./schemas/common/name');
 
-//-------------
-const PokemonModule = require('./schemas/pokemon');
-const PokemonTypeModule = require('./schemas/pokemon-type');
-const TypeModule = require('./schemas/type');
 
 const typeDefs = gql`
   type Query {
@@ -155,15 +169,29 @@ const typeDefs = gql`
   ${PokeathlonStatModule}
   ${NaturePokeathlonStatAffectSetsModule}
   ${NaturePokeathlonStatAffectModule}
+  ${PokemonModule}
+  ${PokemonAbilityModule}
+  ${PokemonTypeModule}
+  ${PokemonHeldItemModule}
+  ${PokemonHeldItemVersionModule}
+  ${PokemonMoveModule}
+  ${PokemonMoveVersionModule}
+  ${PokemonStatModule}
+  ${PokemonSpritesModule}
+  ${LocationAreaEncounterModule}
+  ${PokemonColorModule}
+  ${PokemonFormModule}
+  ${PokemonFormSpritesModule}
+  ${PokemonHabitatModule}
+  ${PokemonShapeModule}
+  ${AwesomeNameModule}
+
+  ${TypeModule}
 
   ${LanguageModule}
   ${EffectModule}
   ${FlavorTextModule}
   ${NameModule}
-  
-  ${PokemonModule}
-  ${PokemonTypeModule}
-  ${TypeModule}
   
 `;
 
