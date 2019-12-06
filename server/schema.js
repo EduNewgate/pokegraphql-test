@@ -53,6 +53,22 @@ const MoveCategoryModule = require('./schemas/moves/move-category');
 const MoveDamageClassModule = require('./schemas/moves/move-damage-class');
 const MoveLearnMethodModule = require('./schemas/moves/move-learn-method');
 const MoveTargetModule = require('./schemas/moves/move-target');
+const AbilityModule = require('./schemas/pokemon/ability');
+const AbilityEffectChangeModule = require('./schemas/pokemon/ability-effect-change');
+const AbilityFlavorTextModule = require('./schemas/pokemon/ability-flavor-text');
+const AbilityPokemonModule = require('./schemas/pokemon/ability-pokemon');
+const CharacteristicsModule = require('./schemas/pokemon/characteristics');
+const EggGroupModule = require('./schemas/pokemon/egg-group');
+const GenderModule = require('./schemas/pokemon/gender');
+const PokemonSpeciesGenderModule = require('./schemas/pokemon/pokemon-species-gender');
+const GrowthRateModule = require('./schemas/pokemon/growth-rate');
+const GrowthRateExperienceLevelModule = require('./schemas/pokemon/growth-rate-experiece-level');
+const NatureModule = require('./schemas/pokemon/nature');
+const NatureStatChangeModule = require('./schemas/pokemon/nature-stat-change');
+const MoveBattleStylePreferenceModule = require('./schemas/pokemon/move-battle-style-preference');
+const PokeathlonStatModule = require('./schemas/pokemon/pokeathlon-stat');
+const NaturePokeathlonStatAffectSetsModule = require('./schemas/pokemon/nature-pokeathlon-stat-affect-sets');
+const NaturePokeathlonStatAffectModule = require('./schemas/pokemon/nature-pokeathlon-stat-affect');
 
 const LanguageModule = require('./schemas/common/language');
 const EffectModule = require('./schemas/common/effect');
@@ -123,6 +139,22 @@ const typeDefs = gql`
   ${MoveDamageClassModule}
   ${MoveLearnMethodModule}
   ${MoveTargetModule}
+  ${AbilityModule}
+  ${AbilityEffectChangeModule}
+  ${AbilityFlavorTextModule}
+  ${AbilityPokemonModule}
+  ${CharacteristicsModule}
+  ${EggGroupModule}
+  ${GenderModule}
+  ${PokemonSpeciesGenderModule}
+  ${GrowthRateModule}
+  ${GrowthRateExperienceLevelModule}
+  ${NatureModule}
+  ${NatureStatChangeModule}
+  ${MoveBattleStylePreferenceModule}
+  ${PokeathlonStatModule}
+  ${NaturePokeathlonStatAffectSetsModule}
+  ${NaturePokeathlonStatAffectModule}
 
   ${LanguageModule}
   ${EffectModule}
