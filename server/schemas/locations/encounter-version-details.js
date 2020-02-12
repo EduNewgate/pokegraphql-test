@@ -1,4 +1,4 @@
-const { gql } = requrie('apollo-server');
+const { gql } = require('apollo-server');
 
 const EncounterVersionDetailsModule = gql`
     type EncounterVersionDetails {

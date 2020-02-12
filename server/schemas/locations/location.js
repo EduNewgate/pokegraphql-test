@@ -1,4 +1,4 @@
-const { gql } = requrie('apollo-server');
+const { gql } = require('apollo-server');
 
 const LocationModule = gql`
     type Location {

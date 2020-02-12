@@ -85,7 +85,15 @@ const PokemonFormSpritesModule = require('./schemas/pokemon/pokemon-form-sprites
 const PokemonHabitatModule = require('./schemas/pokemon/pokemon-habitat');
 const PokemonShapeModule = require('./schemas/pokemon/pokemon-shape');
 const AwesomeNameModule = require('./schemas/pokemon/awesome-name');
-
+const PokemonSpeciesModule = require('./schemas/pokemon/pokemon-species');
+const GenusModule = require ('./schemas/pokemon/genus');
+const PokemonSpeciesDexEntry = require('./schemas/pokemon/pokemon-species-dex-entry');
+const PalParkEncounterAreaModule = require('./schemas/pokemon/pal-park-encounter-area');
+const PokemonSpeciesVarietyModule = require('./schemas/pokemon/pokemon-species-variety');
+const StatModule = require('./schemas/pokemon/stat');
+const MoveStatAffectSets = require('./schemas/pokemon/move-stat-affect-sets');
+const MoveStatAffect = require('./schemas/pokemon/move-stat-affect');
+const NatureStatAffectSets = require('./schemas/pokemon/nature-stat-affect-sets');
 const TypeModule = require('./schemas/type');
 
 const LanguageModule = require('./schemas/common/language');
@@ -185,6 +193,15 @@ const typeDefs = gql`
   ${PokemonHabitatModule}
   ${PokemonShapeModule}
   ${AwesomeNameModule}
+  ${PokemonSpeciesModule}
+  ${GenusModule}
+  ${PokemonSpeciesDexEntry}
+  ${PalParkEncounterAreaModule}
+  ${PokemonSpeciesVarietyModule}
+  ${StatModule}
+  ${MoveStatAffectSets}
+  ${MoveStatAffect}
+  ${NatureStatAffectSets}
 
   ${TypeModule}
 
