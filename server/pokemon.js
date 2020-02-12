@@ -7,18 +7,19 @@ class Pokemon extends RESTDataSource {
         this.baseURL = Constants.API_BASE_URL;
     }
 
-    async getPokemon(offset, limit) {
+    async getPokemonCard(offset, limit) {
         const response = await this.get(Constants.API_RESOURCE_POKEMON, {
             offset: offset,
             limit: limit
         });
+        
         if (response != undefined) {
             return response;
         }
     }
 
-    async getPokemonById(id) {
-        const response = await this.get(Constants.API_RESOURCE_POKEMON + '/' + id);
+    async getPokemonByName(name) {
+        const response = await this.get(Constants.API_RESOURCE_POKEMON + '/' + name);
         if (response != undefined) {
             return response;
         }

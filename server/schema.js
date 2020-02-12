@@ -113,8 +113,8 @@ const VersionGroupFlavorText = require('./schemas/common/version-group-flavor-te
 
 const typeDefs = gql`
   type Query {
-    getPokemon(offset: Int, limit: Int): NamedResourceList,
-    getPokemonById(id: Int!): Pokemon
+    getPokemonCard(offset: Int, limit: Int): NamedResourceList,
+    getPokemonByName(name: String!): Pokemon
   }
   ${UnNamedResourceListModule}
   ${NamedResourceListModule}

@@ -1,8 +1,8 @@
 module.exports = {
     Query: {
-        getPokemon: (_, {offset, limit}, { dataSources }) =>
-            dataSources.pokemon.getPokemon(offset, limit),
-        getPokemonById: (_, {id}, { dataSources }) =>
-            dataSources.pokemon.getPokemonById(id)
+        getPokemonCard: (_, {offset, limit}, { dataSources }) =>
+            dataSources.pokemon.getPokemonCard(offset, limit),
+        getPokemonByName: (_, {name}, { dataSources }) =>
+            dataSources.pokemon.getPokemonByName(name)
     }
 };
