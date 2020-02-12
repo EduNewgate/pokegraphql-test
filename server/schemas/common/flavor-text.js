@@ -1,7 +1,7 @@
 const { gql } = require('apollo-server');
 
 const FlavorTextModule = gql`
-    type ContestEffect {
+    type FlavorText {
         flavor_text: String
         language: Language
         version: Version

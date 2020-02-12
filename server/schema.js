@@ -1,8 +1,6 @@
 const { gql } = require('apollo-server');
-const UnNamedResourceListModule = require('./schemas/resources/unnamed-resource-list');
-const UnNamedResourceModule = require('./schemas/common/unnamed-resource');
-const NamedResourceListModule = require('./schemas/resources/named-resource-list');
-const NamedResourceModule = require('./schemas/common/named-resource');
+const UnNamedResourceListModule = require('./schemas/common/unnamed-resource-list');
+const NamedResourceListModule = require('./schemas/common/named-resource-list');
 const BerryModule = require('./schemas/berries/berry');
 const BerryFlavorMapModule = require('./schemas/berries/berry-flavor-map');
 const BerryFirmnessModule = require('./schemas/berries/berry-firmness');
@@ -47,6 +45,7 @@ const ContestComboDetailModule = require('./schemas/moves/contest-combo-detail')
 const MoveFlavorTextModule = require('./schemas/moves/move-flavor-text');
 const MoveMetaDataModule = require('./schemas/moves/move-meta-data');
 const MoveStatChangeModule = require('./schemas/moves/move-stat-change');
+const PastMoveStatValues = require('./schemas/moves/past-move-stat-values');
 const MoveAilmentModule = require('./schemas/moves/move-ailment');
 const MoveBattleStyleModule = require('./schemas/moves/move-battle-style');
 const MoveCategoryModule = require('./schemas/moves/move-category');
@@ -94,13 +93,23 @@ const StatModule = require('./schemas/pokemon/stat');
 const MoveStatAffectSets = require('./schemas/pokemon/move-stat-affect-sets');
 const MoveStatAffect = require('./schemas/pokemon/move-stat-affect');
 const NatureStatAffectSets = require('./schemas/pokemon/nature-stat-affect-sets');
-const TypeModule = require('./schemas/type');
-
+const TypeModule = require('./schemas/pokemon/type');
+const TypePokemonModule = require('./schemas/pokemon/type-pokemon');
+const TypeRelationsModule = require('./schemas/pokemon/type-relations');
 const LanguageModule = require('./schemas/common/language');
+const UnNamedResourceModule = require('./schemas/common/unnamed-resource');
+const DescriptionModule = require('./schemas/common/description');
+const EncounterModule = require('./schemas/common/encounter');
 const EffectModule = require('./schemas/common/effect');
 const FlavorTextModule = require('./schemas/common/flavor-text');
+const GenerationGameIndexModule = require('./schemas/common/generation-game-index');
+const MachineVersionDetailModule = require('./schemas/common/machine-version-detail');
 const NameModule = require('./schemas/common/name');
-
+const NamedResourceModule = require('./schemas/common/named-resource');
+const VerboseEffectModule = require('./schemas/common/verbose-effect');
+const VersionEncounterDetailModule = require('./schemas/common/version-encounter-detail');
+const VersionGameIndexModule = require('./schemas/common/version-game-index');
+const VersionGroupFlavorText = require('./schemas/common/version-group-flavor-text');
 
 const typeDefs = gql`
   type Query {
@@ -108,9 +117,7 @@ const typeDefs = gql`
     getPokemonById(id: Int!): Pokemon
   }
   ${UnNamedResourceListModule}
-  ${UnNamedResourceModule}
   ${NamedResourceListModule}
-  ${NamedResourceModule}
   ${BerryModule}
   ${BerryFlavorMapModule}
   ${BerryFirmnessModule}
@@ -155,6 +162,7 @@ const typeDefs = gql`
   ${MoveFlavorTextModule}
   ${MoveMetaDataModule}
   ${MoveStatChangeModule}
+  ${PastMoveStatValues}
   ${MoveAilmentModule}
   ${MoveBattleStyleModule}
   ${MoveCategoryModule}
@@ -202,14 +210,23 @@ const typeDefs = gql`
   ${MoveStatAffectSets}
   ${MoveStatAffect}
   ${NatureStatAffectSets}
-
   ${TypeModule}
-
+  ${TypePokemonModule}
+  ${TypeRelationsModule}
   ${LanguageModule}
+  ${UnNamedResourceModule}
+  ${DescriptionModule}
   ${EffectModule}
+  ${EncounterModule}
   ${FlavorTextModule}
+  ${GenerationGameIndexModule}
+  ${MachineVersionDetailModule}
   ${NameModule}
-  
+  ${NamedResourceModule}
+  ${VerboseEffectModule}
+  ${VersionEncounterDetailModule}
+  ${VersionGameIndexModule}
+  ${VersionGroupFlavorText}
 `;
 
 module.exports = typeDefs;

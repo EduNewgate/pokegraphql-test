@@ -20,7 +20,7 @@ const MoveModule = gql`
         machines: [MachineVersionDetail]
         meta: MoveMetaData
         names: [Name]
-        past_values: PastMoveStatValues
+        past_values: [PastMoveStatValues]
         stat_changes: [MoveStatChange]
         super_contest_effect: SuperContestEffect
         target: MoveTarget

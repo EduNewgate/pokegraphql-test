@@ -18,7 +18,7 @@ const PokemonSpeciesModule = gql`
         color: PokemonColor
         shape: PokemonShape
         evolves_from_species: PokemonSpecies
-        evolution_chain: evolution_chain
+        evolution_chain: EvolutionChain
         habitat: PokemonHabitat
         generation: Generation
         names: [Name]

@@ -2,7 +2,7 @@ const { gql } = require('apollo-server');
 
 const EvolutionDetailModule = gql`
     type EvolutionDetail {
-        item: item
+        item: Item
         trigger: EvolutionTrigger
         gender: Int
         held_item: Item

@@ -8,7 +8,7 @@ const StatModule = gql`
         is_battle_only: Boolean
         affecting_moves: MoveStatAffectSets
         affecting_natures: NatureStatAffectSets
-        characteristics: Characteristic
+        characteristics: Characteristics
         move_damage_class: MoveDamageClass
         names: [Name]
     }

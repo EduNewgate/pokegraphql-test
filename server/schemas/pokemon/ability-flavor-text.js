@@ -4,7 +4,7 @@ const AbilityFlavorTextModule = gql`
     type AbilityFlavorText {
         flavor_text: String
         language: Language
-        version_group: VersionoGroup
+        version_group: VersionGroup
     }
 `;
 
