@@ -1,5 +1,6 @@
 const { RESTDataSource } = require('apollo-datasource-rest');
 const Constants = require('./constants');
+const PokemonCardModule = require('./schemas/custom/pokemon-card');
 
 class Pokemon extends RESTDataSource {
     constructor() {
@@ -12,17 +13,22 @@ class Pokemon extends RESTDataSource {
             offset: offset,
             limit: limit
         });
-        
         if (response != undefined) {
-            return response;
+            for (const pokemon of response.results) {
+                await this.getPokemonByName(pokemon.name);
+            }
         }
     }
 
     async getPokemonByName(name) {
         const response = await this.get(Constants.API_RESOURCE_POKEMON + '/' + name);
         if (response != undefined) {
-            return response;
+            await this.buildCard(response);
         }
+    }
+
+    buildCard(data) {
+        console.log(data);
     }
 }
 

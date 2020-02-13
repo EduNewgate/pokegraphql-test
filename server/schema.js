@@ -111,9 +111,12 @@ const VersionEncounterDetailModule = require('./schemas/common/version-encounter
 const VersionGameIndexModule = require('./schemas/common/version-game-index');
 const VersionGroupFlavorText = require('./schemas/common/version-group-flavor-text');
 
+//Custom
+const PokemonCardModule = require('./schemas/custom/pokemon-card');
+
 const typeDefs = gql`
   type Query {
-    getPokemonCard(offset: Int, limit: Int): NamedResourceList,
+    getPokemonCard(offset: Int, limit: Int): PokemonCard,
     getPokemonByName(name: String!): Pokemon
   }
   ${UnNamedResourceListModule}
@@ -227,6 +230,8 @@ const typeDefs = gql`
   ${VersionEncounterDetailModule}
   ${VersionGameIndexModule}
   ${VersionGroupFlavorText}
+
+  ${PokemonCardModule}
 `;
 
 module.exports = typeDefs;
