@@ -9,7 +9,7 @@ class Pokemon extends RESTDataSource {
         this.baseURL = Constants.API_BASE_URL;
     }
 
-    async getPokemonCard(offset, limit) {
+    async getPokemonCards(offset, limit) {
         pokemonCardResponse = new Array();
         const response = await this.get(Constants.API_RESOURCE_POKEMON, {
             offset: offset,
