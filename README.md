@@ -17,23 +17,40 @@ cd server && node server.js
 
 Next, go to localhost:4000 on your browser.
 
-###### A simple query
+###### An example query
 
-Finally, copy this piece of code on the left editor and clik "Play". You will obtain the response.
+Copy this piece of code on the left editor.
 
 ```
-query {
-  getPokemon {
-    name
-  }
-}
+query GetPokemonCards($offset: Int, $limit: Int) {
+      getPokemonCards(offset: $offset, limit: $limit) {
+        name
+        height
+        weight
+        types {
+          type {
+            name
+          }
+        }
+        abilities {
+          is_hidden
+          ability {
+            name
+          }
+        }
+        stats {
+          base_stat
+          stat {
+            name
+          }
+        }
+      }
+    }
 ```
-
-###### A simple query with params
+Finaly, add the next piece to the "Variables section" on the bottom of editor and click "Play" or "Ctrl + Enter". You will obtain the response.
 ```
-query {
-  getPokemon(offset: 20, limit: 20) {
-    name
-  }
+{
+  offset: 0,
+  limit: 20
 }
 ```
