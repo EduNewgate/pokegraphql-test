@@ -47,7 +47,7 @@ class Pokemon extends RESTDataSource {
 
     formatNames(abilities) {
         for (let ab of abilities) {
-            ab.ability.name = ab.ability.name.charAt(0).toUpperCase() + ab.ability.name.replace("-", " ").slice(1)
+            ab.ability.name = ab.ability.name.charAt(0).toUpperCase() + ab.ability.name.replace("-", " ").slice(1);
         }
     }
 }
