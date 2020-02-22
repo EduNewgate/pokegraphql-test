@@ -34,7 +34,8 @@ class Pokemon extends RESTDataSource {
     }
 
     buildCard(data, pokemonCardResponse) {
-        this.formatNames(data.abilities);
+        this.formatAbilityNames(data.abilities);
+        this.formatTypeNames(data.types);
         pokemonCardResponse.push({
             "name": data.name.charAt(0).toUpperCase() + data.name.slice(1),
             "weight": data.weight/10, //Kg
@@ -45,9 +46,15 @@ class Pokemon extends RESTDataSource {
         });
     }
 
-    formatNames(abilities) {
+    formatAbilityNames(abilities) {
         for (let ab of abilities) {
             ab.ability.name = ab.ability.name.charAt(0).toUpperCase() + ab.ability.name.replace("-", " ").slice(1);
+        }
+    }
+
+    formatTypeNames(types) {
+        for (let type of types) {
+            type.type.name = type.type.name.charAt(0).toUpperCase() + type.type.name.replace("-", " ").slice(1);
         }
     }
 }
