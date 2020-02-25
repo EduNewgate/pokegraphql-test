@@ -11,51 +11,34 @@ class Pokemon extends RESTDataSource {
 
     async getPokemonCards(offset, limit) {
         pokemonCardResponse = new Array();
-        const response = await this.get(Constants.API_RESOURCE_POKEMON, {
-            offset: offset,
-            limit: limit
-        });
+        const response = await this.get(Constants.API_RESOURCE_POKEDEX + '/national');
         if (response != undefined) {
-            for (const pokemon of response.results) {
-                await this.getPokemonByName(pokemon.url, pokemonCardResponse);
+            for (let i = offset; i < offset + limit; i++) {
+                var name = response.pokemon_entries[i].pokemon_species.name;
+                var entry_number = response.pokemon_entries[i].entry_number.toString().padStart(3,"0");
+                await this.getPokemonByName(name, entry_number, pokemonCardResponse);
             }
             return pokemonCardResponse;
         }
     }
 
-    async getPokemonByName(url, pokemonCardResponse) {
+    async getPokemonByName(name, entry_number, pokemonCardResponse) {
+        var url = Constants.API_RESOURCE_POKEMON + '/' + name;
         const response = await this.get(url);
         var isResponse = response != undefined;
         if (isResponse && pokemonCardResponse != undefined) {
-            this.buildCard(response, pokemonCardResponse);
+            this.buildCard(response, name, entry_number, pokemonCardResponse);
         } else if (isResponse) {
             return response;
         }
     }
 
-    buildCard(data, pokemonCardResponse) {
-        this.formatAbilityNames(data.abilities);
-        this.formatTypeNames(data.types);
+    buildCard(data, name, entry_number, pokemonCardResponse) {
         pokemonCardResponse.push({
-            "name": data.name.charAt(0).toUpperCase() + data.name.slice(1),
-            "weight": data.weight/10, //Kg
-            "height": data.height/10, //metros
+            "name": name.charAt(0).toUpperCase() + name.slice(1),
             "types": data.types.reverse(),
-            "abilities": data.abilities.reverse(),
-            "stats": data.stats.reverse()
+            "entry_number": entry_number
         });
-    }
-
-    formatAbilityNames(abilities) {
-        for (let ab of abilities) {
-            ab.ability.name = ab.ability.name.charAt(0).toUpperCase() + ab.ability.name.replace("-", " ").slice(1);
-        }
-    }
-
-    formatTypeNames(types) {
-        for (let type of types) {
-            type.type.name = type.type.name.charAt(0).toUpperCase() + type.type.name.replace("-", " ").slice(1);
-        }
     }
 }
 
