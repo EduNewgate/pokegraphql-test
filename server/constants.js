@@ -1,4 +1,4 @@
-exports.API_BASE_URL = 'https://pokeapi.co/api/v2/';
+exports.API_BASE_URL = 'http://pokeapi.co/api/v2/';
 exports.API_RESOURCE_ABILITY = 'ability';
 exports.API_RESOURCE_BERRY = 'berry';
 exports.API_RESOURCE_BERRY_FIRMNESS = 'berry-firmness';

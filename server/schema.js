@@ -115,7 +115,7 @@ const VersionGroupFlavorText = require("./schemas/common/version-group-flavor-te
 const PokemonCardModule = require("./schemas/custom/pokemon-card");
 
 const typeDefs = gql`
-  type Query @cacheControl(maxAge: 31536000) {
+  type Query {
     getPokemonCards(offset: Int, limit: Int): [PokemonEntry]
     getPokemonByName(name: String!): Pokemon
     getPokemonSpecie(name: String!): PokemonSpecies
