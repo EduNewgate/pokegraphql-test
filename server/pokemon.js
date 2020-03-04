@@ -11,34 +11,42 @@ class Pokemon extends RESTDataSource {
 
     async getPokemonCards(offset, limit) {
         pokemonCardResponse = new Array();
-        const response = await this.get(Constants.API_RESOURCE_POKEDEX + '/national');
+        const response = await this.get(this.baseURL + Constants.API_RESOURCE_POKEDEX + '/national');
         if (response != undefined) {
             for (let i = offset; i < offset + limit; i++) {
-                var name = response.pokemon_entries[i].pokemon_species.name;
-                var entry_number = response.pokemon_entries[i].entry_number.toString().padStart(3,"0");
-                await this.getPokemonByName(name, entry_number, pokemonCardResponse);
+                response.pokemon_entries[i].pokemon_species = await this.getPokemonSpecie(response.pokemon_entries[i].pokemon_species.url);
+                var pkmCardFormated = this.formatCardData(response.pokemon_entries[i]);
+                pokemonCardResponse.push(pkmCardFormated);
             }
             return pokemonCardResponse;
         }
     }
 
-    async getPokemonByName(name, entry_number, pokemonCardResponse) {
-        var url = Constants.API_RESOURCE_POKEMON + '/' + name;
-        const response = await this.get(url);
-        var isResponse = response != undefined;
-        if (isResponse && pokemonCardResponse != undefined) {
-            this.buildCard(response, name, entry_number, pokemonCardResponse);
-        } else if (isResponse) {
+    async getPokemonSpecie(name) {
+        const response = await this.get(name);
+        if (response != undefined) {
+            for (const variety of response.varieties) {
+                variety.pokemon = await this.getPokemonByName(variety.pokemon.url);
+            }
             return response;
         }
     }
 
-    buildCard(data, name, entry_number, pokemonCardResponse) {
-        pokemonCardResponse.push({
-            "name": name.charAt(0).toUpperCase() + name.slice(1),
-            "types": data.types.reverse(),
-            "entry_number": entry_number
-        });
+    async getPokemonByName(name) {
+        const response = await this.get(name);
+        if (response != null) {
+            return response;
+        }
+    }
+
+    formatCardData(pkmCard) {
+        pkmCard.entry_number = pkmCard.entry_number.toString().padStart(3, "0");
+        pkmCard.pokemon_species.name = pkmCard.pokemon_species.name.charAt(0).toUpperCase() + pkmCard.pokemon_species.name.slice(1);
+        for (const variety of pkmCard.pokemon_species.varieties) {
+            variety.pokemon.name = variety.pokemon.name.charAt(0).toUpperCase() + variety.pokemon.name.slice(1);
+            variety.pokemon.types = variety.pokemon.types.reverse();
+        }
+        return pkmCard;
     }
 }
 

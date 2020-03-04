@@ -2,7 +2,7 @@ const { gql } = require('apollo-server');
 
 const PokemonEntryModule = gql`
     type PokemonEntry {
-        entry_number: Int
+        entry_number: String
         pokemon_species: PokemonSpecies
     }
 `;
