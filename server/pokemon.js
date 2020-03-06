@@ -1,5 +1,6 @@
 const { RESTDataSource } = require('apollo-datasource-rest');
 const Constants = require('./constants');
+const Utils = require('./utils');
 
 var pokemonCardResponse;
 
@@ -11,7 +12,8 @@ class Pokemon extends RESTDataSource {
 
     async getPokemonCards(offset, limit) {
         pokemonCardResponse = new Array();
-        const response = await this.get(this.baseURL + Constants.API_RESOURCE_POKEDEX + '/national');
+        var url = Utils.buildURL('national', Constants.API_RESOURCE_POKEDEX)
+        const response = await this.get(url);
         if (response != undefined) {
             for (let i = offset; i < offset + limit; i++) {
                 response.pokemon_entries[i].pokemon_species = await this.getPokemonSpecie(response.pokemon_entries[i].pokemon_species.url);
@@ -23,17 +25,19 @@ class Pokemon extends RESTDataSource {
     }
 
     async getPokemonSpecie(name) {
-        const response = await this.get(name);
+        var url = Utils.buildURL(name, Constants.API_RESOURCE_POKEMON_SPECIES);
+        const response = await this.get(url);
         if (response != undefined) {
             for (const variety of response.varieties) {
-                variety.pokemon = await this.getPokemonByName(variety.pokemon.url);
+                variety.pokemon = await this.getPokemon(variety.pokemon.url);
             }
             return response;
         }
     }
 
-    async getPokemonByName(name) {
-        const response = await this.get(name);
+    async getPokemon(name) {
+        var url = Utils.buildURL(name, Constants.API_RESOURCE_POKEMON);
+        const response = await this.get(url);
         if (response != null) {
             return response;
         }

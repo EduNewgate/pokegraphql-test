@@ -117,7 +117,7 @@ const PokemonCardModule = require("./schemas/custom/pokemon-card");
 const typeDefs = gql`
   type Query {
     getPokemonCards(offset: Int, limit: Int): [PokemonEntry]
-    getPokemonByName(name: String!): Pokemon
+    getPokemon(name: String!): Pokemon
     getPokemonSpecie(name: String!): PokemonSpecies
   }
   ${UnNamedResourceListModule}
