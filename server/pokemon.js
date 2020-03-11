@@ -10,22 +10,31 @@ class Pokemon extends RESTDataSource {
         this.baseURL = Constants.API_BASE_URL;
     }
 
-    async getPokemonCards(offset, limit) {
+    /*static async getPokemonCards(args) {
         pokemonCardResponse = new Array();
-        var url = Utils.buildURL('national', Constants.API_RESOURCE_POKEDEX)
         const response = await this.get(url);
         if (response != undefined) {
-            for (let i = offset; i < offset + limit; i++) {
+            for (let i = args.offset; i < args.offset + args.limit; i++) {
                 response.pokemon_entries[i].pokemon_species = await this.getPokemonSpecie(response.pokemon_entries[i].pokemon_species.url);
                 var pkmCardFormated = this.formatCardData(response.pokemon_entries[i]);
                 pokemonCardResponse.push(pkmCardFormated);
             }
             return pokemonCardResponse;
         }
+    }*/
+
+    async getPokemonSpecies(args) {
+        var url = Constants.API_BASE_URL + Constants.API_RESOURCE_POKEMON_SPECIES + '?offset=' + args.offset + '&limit=' + args.limit;
+        const response = await this.get(url);
+        if (response != undefined) {
+            for (let res of response.results) {
+                res = await this.getPokemonSpecie(res.url);
+            }
+            return response;
+        }
     }
 
-    async getPokemonSpecie(name) {
-        var url = Utils.buildURL(name, Constants.API_RESOURCE_POKEMON_SPECIES);
+    async getPokemonSpecie(url) {
         const response = await this.get(url);
         if (response != undefined) {
             for (const variety of response.varieties) {
@@ -35,8 +44,7 @@ class Pokemon extends RESTDataSource {
         }
     }
 
-    async getPokemon(name) {
-        var url = Utils.buildURL(name, Constants.API_RESOURCE_POKEMON);
+    async getPokemon(url) {
         const response = await this.get(url);
         if (response != null) {
             return response;

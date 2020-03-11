@@ -118,7 +118,7 @@ const typeDefs = gql`
   type Query {
     getPokemonCards(offset: Int, limit: Int): [PokemonEntry]
     getPokemon(name: String!): Pokemon
-    getPokemonSpecie(name: String!): PokemonSpecies
+    getPokemonSpecies(offset: Int, limit: Int): [PokemonSpecies]
   }
   ${UnNamedResourceListModule}
   ${NamedResourceListModule}
