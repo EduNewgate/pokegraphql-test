@@ -84,7 +84,8 @@ const PokemonFormSpritesModule = require("./schemas/pokemon/pokemon-form-sprites
 const PokemonHabitatModule = require("./schemas/pokemon/pokemon-habitat");
 const PokemonShapeModule = require("./schemas/pokemon/pokemon-shape");
 const AwesomeNameModule = require("./schemas/pokemon/awesome-name");
-const PokemonSpeciesModule = require("./schemas/pokemon/pokemon-species");
+const PokemonSpeciesModule = require("./schemas/custom/pokemon-species");
+const PokemonSpecieModule = require("./schemas/pokemon/pokemon-specie");
 const GenusModule = require("./schemas/pokemon/genus");
 const PokemonSpeciesDexEntry = require("./schemas/pokemon/pokemon-species-dex-entry");
 const PalParkEncounterAreaModule = require("./schemas/pokemon/pal-park-encounter-area");
@@ -118,7 +119,7 @@ const typeDefs = gql`
   type Query {
     getPokemonCards(offset: Int, limit: Int): [PokemonEntry]
     getPokemon(name: String!): Pokemon
-    getPokemonSpecies(offset: Int, limit: Int): [PokemonSpecies]
+    getPokemonSpecies(offset: Int, limit: Int): PokemonSpecies
   }
   ${UnNamedResourceListModule}
   ${NamedResourceListModule}
@@ -205,6 +206,7 @@ const typeDefs = gql`
   ${PokemonHabitatModule}
   ${PokemonShapeModule}
   ${AwesomeNameModule}
+  ${PokemonSpecieModule}
   ${PokemonSpeciesModule}
   ${GenusModule}
   ${PokemonSpeciesDexEntry}

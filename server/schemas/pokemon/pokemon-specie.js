@@ -1,7 +1,7 @@
 const { gql } = require('apollo-server');
 
-const PokemonSpeciesModule = gql`
-    type PokemonSpecies {
+const PokemonSpecieModule = gql`
+    type PokemonSpecie {
         id: Int
         name: String
         order: Int
@@ -30,4 +30,4 @@ const PokemonSpeciesModule = gql`
     }
 `;
 
-module.exports = PokemonSpeciesModule;
+module.exports = PokemonSpecieModule;

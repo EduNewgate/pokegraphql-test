@@ -2,9 +2,9 @@ const { ApolloServer } = require("apollo-server");
 const typeDefs = require("./schema");
 const resolvers = require("./resolvers");
 const Pokemon = require("./pokemon");
-const { bootstrap: bootstrapGlobalAgent } = require('global-agent');
+//const { bootstrap: bootstrapGlobalAgent } = require('global-agent');
 
-bootstrapGlobalAgent();
+//bootstrapGlobalAgent();
 
 const server = new ApolloServer({
   typeDefs,

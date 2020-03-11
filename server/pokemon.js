@@ -37,7 +37,7 @@ class Pokemon extends RESTDataSource {
     async getPokemonSpecie(url) {
         const response = await this.get(url);
         if (response != undefined) {
-            for (const variety of response.varieties) {
+            for (let variety of response.varieties) {
                 variety.pokemon = await this.getPokemon(variety.pokemon.url);
             }
             return response;
