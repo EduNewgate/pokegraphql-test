@@ -2,7 +2,7 @@ const { gql } = require('apollo-server');
 
 const PokemonSpecieModule = gql`
     type PokemonSpecie {
-        id: Int
+        id: String
         name: String
         order: Int
         gender_rate: Int

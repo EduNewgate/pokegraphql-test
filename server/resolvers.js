@@ -1,10 +1,8 @@
 module.exports = {
     Query: {
-        getPokemonCards: async (_, {offset, limit}, { dataSources }) => {
-            return await dataSources.pokemon.getPokemonCards({offset, limit});
+        getPokemonSpecie: async (_, {arg}, { dataSources }) => {
+            return await dataSources.pokemon.getPokemonSpecie(arg);
         },
-        getPokemon: (_, {name}, { dataSources }) =>
-            dataSources.pokemon.getPokemonByName(name),
         getPokemonSpecies: async (_, {offset, limit}, { dataSources }) => {
             return await dataSources.pokemon.getPokemonSpecies({offset, limit});
         }

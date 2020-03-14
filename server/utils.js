@@ -1,15 +1,11 @@
-const Constants = require('./constants');
-
 class Utils {
-    constructor() {
-        this.baseURL = Constants.API_BASE_URL;
-    }
+    constructor() { }
 
-    static buildURL(name, endpoint) {
-        if (this.isURL(name)) {
-            return name;
+    static buildURL(arg, endpoint) {
+        if (this.isURL(arg)) {
+            return arg;
         } else {
-            return this.baseUrl + endpoint + '/' + name;
+            return endpoint + '/' + arg;
         }
     }
 
